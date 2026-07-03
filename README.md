@@ -1,5 +1,7 @@
 # Thisisme
 
+"This is me"
+
 A clean and lightweight personal website template.
 
 ## Tech stack
