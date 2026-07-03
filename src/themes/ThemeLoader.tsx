@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState, type ComponentType } from 'react'
+import { lazy, Suspense, useMemo, type ComponentType } from 'react'
 import { useTheme } from './ThemeContext'
 
 const DEV_THEME_LOADERS: Record<string, () => Promise<{ default: ComponentType }>> = {
@@ -14,31 +14,25 @@ export function ThemeLoader() {
 
 function DevThemeLoader() {
   const { themeId } = useTheme()
-  const [Component, setComponent] = useState<ComponentType | null>(null)
 
-  useEffect(() => {
+  const ThemeApp = useMemo(() => {
     const loader = DEV_THEME_LOADERS[themeId]
-    if (!loader) {
-      setComponent(null)
-      return
-    }
-    let cancelled = false
-    loader().then((mod) => {
-      if (!cancelled) setComponent(mod.default)
-    })
-    return () => {
-      cancelled = true
-    }
+    return loader ? lazy(loader) : null
   }, [themeId])
 
-  if (!Component) {
+  if (!ThemeApp) {
     return (
       <div style={{ padding: 48, textAlign: 'center' }}>
         Theme &quot;{themeId}&quot; not found.
       </div>
     )
   }
-  return <Component />
+
+  return (
+    <Suspense fallback={null}>
+      <ThemeApp />
+    </Suspense>
+  )
 }
 
 function ProdThemeLoader() {
