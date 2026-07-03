@@ -130,9 +130,17 @@ function App() {
         </div>
       </section>
       <section className="page page-detail">
-        <div className="detail-container">
-          <h2 className="detail-heading">About</h2>
-          <p className="detail-text">More content coming soon.</p>
+        <div className="poem">
+          <h2 className="poem-title">Nothing Gold Can Stay</h2>
+          <span className="poem-author">Robert Frost</span>
+          <p className="poem-line">Nature's first green is gold,</p>
+          <p className="poem-line">Her hardest hue to hold.</p>
+          <p className="poem-line">Her early leaf's a flower;</p>
+          <p className="poem-line">But only so an hour.</p>
+          <p className="poem-line">Then leaf subsides to leaf.</p>
+          <p className="poem-line">So Eden sank to grief,</p>
+          <p className="poem-line">So dawn goes down to day.</p>
+          <p className="poem-line">Nothing gold can stay.</p>
         </div>
       </section>
     </>

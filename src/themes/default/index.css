@@ -105,23 +105,43 @@ body {
   color: var(--text);
 }
 
-.detail-container {
-  max-width: 720px;
+.poem {
+  max-width: 640px;
   padding: 48px 24px;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.55;
+  background-image: radial-gradient(circle closest-side, var(--divider) 0.4px, transparent 0.4px);
+  background-size: 14px 1.55em;
+  background-position: 0 calc(1.55em / 2);
+  box-shadow: inset 16px 0 0 -15px var(--divider);
 }
 
-.detail-heading {
-  margin: 0 0 16px;
-  font-size: 28px;
-  font-weight: 500;
+.poem-title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 400;
   color: var(--text-h);
+  text-decoration: underline;
+  text-decoration-color: var(--divider);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
 }
 
-.detail-text {
-  margin: 0;
-  font-size: 16px;
+.poem-author {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 300;
   color: var(--text);
-  line-height: 1.7;
+  opacity: 0.5;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+.poem-line {
+  margin: 0;
+  font-size: 17.5px;
+  color: var(--text-h);
+  letter-spacing: 0.7px;
 }
 
 .page-indicator {
@@ -173,11 +193,15 @@ body {
     font-size: 14px;
   }
 
-  .detail-heading {
-    font-size: 22px;
+  .poem {
+    padding: 36px 20px;
   }
 
-  .detail-text {
-    font-size: 15px;
+  .poem-title {
+    font-size: 18px;
+  }
+
+  .poem-line {
+    font-size: 16px;
   }
 }
