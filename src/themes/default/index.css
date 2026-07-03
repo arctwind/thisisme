@@ -25,12 +25,32 @@
   }
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
+  height: 100svh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#root::-webkit-scrollbar {
+  display: none;
+}
+
+.page {
+  width: 100%;
   min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
+  align-items: center;
+  justify-content: center;
   box-sizing: border-box;
 }
 
@@ -39,9 +59,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-grow: 1;
   gap: 32px;
   padding: 48px 24px;
+  max-width: 720px;
 }
 
 .title {
@@ -63,6 +83,78 @@
   border-radius: 1px;
 }
 
+.intro {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.intro-name {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--text-h);
+  letter-spacing: 0.5px;
+}
+
+.intro-slogan {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.detail-container {
+  max-width: 720px;
+  padding: 48px 24px;
+}
+
+.detail-heading {
+  margin: 0 0 16px;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.detail-text {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.page-indicator {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  padding: 12px 10px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.indicator-track {
+  position: relative;
+  width: 1px;
+  height: 28px;
+  background: var(--divider);
+  opacity: 0.45;
+}
+
+.indicator-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
 @media (max-width: 640px) {
   .title {
     font-size: 42px;
@@ -70,5 +162,21 @@
 
   .hero {
     gap: 24px;
+  }
+
+  .intro-name {
+    font-size: 18px;
+  }
+
+  .intro-slogan {
+    font-size: 14px;
+  }
+
+  .detail-heading {
+    font-size: 22px;
+  }
+
+  .detail-text {
+    font-size: 15px;
   }
 }
