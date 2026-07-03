@@ -142,6 +142,13 @@ function App() {
           <p className="poem-line">So dawn goes down to day.</p>
           <p className="poem-line">Nothing gold can stay.</p>
         </div>
+        <footer className="site-footer">
+          <div className="footer-links">
+            <a className="footer-link" href="https://github.com/arctwind/thisisme" target="_blank" rel="noopener">GitHub</a>
+            <a className="footer-link" href="#">Link 1</a>
+            <a className="footer-link" href="#">Link 2</a>
+          </div>
+        </footer>
       </section>
     </>
   )
